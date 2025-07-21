@@ -58,3 +58,9 @@ The filter order (N=50) provided a good trade-off between performance and comput
 The design can be extended to other filter types (e.g., high-pass, band-pass) or optimized further using different window functions or advanced techniques like equiripple design (firpm).
 
 In conclusion, this task successfully demonstrated the complete workflow of FIR filter design, simulation, and performance analysis using MATLAB. It provided hands-on understanding of filter characteristics, impulse response behavior, and the practical effect of digital filtering on real-world-like signals.
+
+OUTPUT:
+
+<img width="796" height="594" alt="Image" src="https://github.com/user-attachments/assets/1cc6d8ac-7e4b-4d93-8afc-e1818e537fa4" />
+<img width="791" height="578" alt="Image" src="https://github.com/user-attachments/assets/e055e56d-1e3f-4ffa-abd6-fd8b20fb8db2" />
+<img width="1919" height="701" alt="Image" src="https://github.com/user-attachments/assets/a748c1ca-ebd2-400c-a3c0-faae521dec22" />
