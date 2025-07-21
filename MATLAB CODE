@@ -1,0 +1,40 @@
+% FIR Filter Design and Simulation
+clc; clear; close all;
+
+%% Filter Specifications
+Fs = 1000;          % Sampling Frequency (Hz)
+Fc = 150;           % Cutoff Frequency (Hz)
+N = 51;             % Filter order (number of taps)
+wn = Fc / (Fs/2);   % Normalized cutoff frequency
+
+%% Design FIR Filter using Hamming Window
+b = fir1(N-1, wn, 'low', hamming(N));  % 'low' => low-pass filter
+fvtool(b, 1);                          % Visualize filter
+
+%% Plot Impulse Response
+figure;
+stem(0:N-1, b, 'filled');
+title('FIR Filter Coefficients (Impulse Response)');
+xlabel('Sample'); ylabel('Amplitude'); grid on;
+
+%% Test Signal: Input = Noisy Sine Wave
+t = 0:1/Fs:1;                         % 1-second signal
+x = sin(2*pi*100*t) + 0.5*randn(size(t));  % 100 Hz + noise
+
+%% Apply FIR Filter
+y = filter(b, 1, x);
+
+%% Plot Input and Filtered Output
+figure;
+subplot(2,1,1);
+plot(t, x);
+title('Input Signal (Noisy)'); xlabel('Time (s)'); ylabel('Amplitude');
+
+subplot(2,1,2);
+plot(t, y, 'r');
+title('Filtered Output Signal'); xlabel('Time (s)'); ylabel('Amplitude');
+
+%% Frequency Response
+figure;
+freqz(b,1,1024,Fs);
+title('FIR Filter Frequency Response');
